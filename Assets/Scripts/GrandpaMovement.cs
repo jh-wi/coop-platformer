@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BabyBirdMovement : MonoBehaviour
+public class GrandpaMovement : MonoBehaviour
 {
     public float moveSpeed;
     public float jumpForce;
     public float checkRadius;
+
     private Rigidbody2D rb;
     private bool facingRight = true;
     private float moveDirection;
@@ -26,8 +27,8 @@ public class BabyBirdMovement : MonoBehaviour
     void Update()
     {
         //Get Inputs
-        moveDirection = Input.GetAxis("Horizontal1"); //Scale of -1 -> 1.
-        if(Input.GetButtonDown("Jump1") && isGrounded)
+        moveDirection = Input.GetAxis("Horizontal2"); //Scale of -1 -> 1.
+        if(Input.GetButtonDown("Jump2") && isGrounded)
         {
             isJumping = true;
         }
@@ -40,7 +41,7 @@ public class BabyBirdMovement : MonoBehaviour
             FlipCharacter();
         }
 
-                //Move
+        //Move
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
         if(isJumping) {
             rb.AddForce(new Vector2(0f, jumpForce));
@@ -48,11 +49,12 @@ public class BabyBirdMovement : MonoBehaviour
         isJumping = false;
     }
 
-    //Better for handing Physics
+    //Better for handing Physics, called before each internal physics update (about 50x per sec)
     private void FixedUpdate()
     {
         //Check if grounded
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundObjects);
+        print("isGround is " + isGrounded);
         //Move
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
         if(isJumping) {
