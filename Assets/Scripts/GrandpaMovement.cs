@@ -7,6 +7,13 @@ public class GrandpaMovement : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     public float checkRadius;
+    
+    float dashDirection;
+    bool isDashinig;
+    public float dashForce;
+    public float dashTimer;
+    float currentDashTimer;
+    //public ParticleSystem particles;
 
     private Rigidbody2D rb;
     private bool facingRight = true;
@@ -47,6 +54,25 @@ public class GrandpaMovement : MonoBehaviour
             rb.AddForce(new Vector2(0f, jumpForce));
         }
         isJumping = false;
+
+        //Dash
+        if(isJumping && !isDashinig){
+            isDashinig = true;
+            currentDashTimer = dashTimer;
+            rb.velocity = Vector2.zero;
+            dashDirection = (int)moveDirection;
+            //particles.Play();
+        }
+
+        if(isDashinig){
+            rb.velocity = new Vector2(moveDirection * dashForce, rb.velocity.y);
+            //rb.velocity = transform.right * dashDirection * dashForce* 10000;
+            currentDashTimer -= Time.deltaTime;
+
+            if(currentDashTimer <= 0){
+                isDashinig = false;
+            }
+        }
     }
 
     //Better for handing Physics, called before each internal physics update (about 50x per sec)
