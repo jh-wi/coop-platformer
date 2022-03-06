@@ -661,8 +661,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8227e6f052641ed4ba145fb4b55b9826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1105397834}
-  offset: {x: 0, y: 0, z: -10}
+  player1: {fileID: 176242211}
+  player2: {fileID: 1105397834}
+  minSizeY: 0.1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1947,7 +1948,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1855959309
 Rigidbody2D:
