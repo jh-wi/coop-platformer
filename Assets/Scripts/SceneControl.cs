@@ -8,4 +8,7 @@ public class SceneControl : MonoBehaviour
     public void NextScene(){
         SceneManager.LoadScene("main");
     }
+    public void goBack(){
+        SceneManager.LoadScene("Start Menu");
+    }
 }
