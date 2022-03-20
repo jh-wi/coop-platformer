@@ -2,50 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdController : MonoBehaviour {
-	
-	Vector2 playerVelocity;
-	Vector2 gravityVelocity;
-	[SerializeField] float maxYvel;
-	bool grounded;
-	[SerializeField] float moveSpeed;
-	[SerializeField] float jumpForce;
-	[SerializeField] float jumpCooldown;
-	bool canJump = true;
-	[SerializeField] float gravity;
-	Rigidbody2D rb;
-	SpriteRenderer renderer;
+public class BirdController : PlayerController {
 	
 	
 	[SerializeField] Sprite altSprite;
 	Sprite ogSprite;
 	
-	int triggerObjects = 0;
-	
-	void OnTriggerEnter() {
-		triggerObjects++;
-	}
-	
-	void OnTriggerExit() {
-		triggerObjects--;
-	}
-	
-	
-	void Start() {
-		rb = GetComponent<Rigidbody2D>();
-		renderer = GetComponent<SpriteRenderer>();
+	protected override void Start() {
+		base.Start();
 		ogSprite = renderer.sprite;
 	}
 	
-	void PlayerMove() {
-		grounded = triggerObjects > 0;
+	protected override void PlayerMove() {
 		
-		
-		if (canJump && Input.GetKey(Keybinds.birdJump)) {
+		if (canJump && Input.GetKey(Keybinds.birdJump)/* && Vector3.Dot(transform.up, Vector3.up) > 0.75*/) {
 			//playerVelocity += Vector2.up * jumpForce;
 			//transform.position += Vector3.up * 0.2f;
 			rb.AddForce(Vector2.up * jumpForce);
 			StartCoroutine(JumpCooldown());
+		}
+		
+		rb.velocity = new Vector2(0, rb.velocity.y);
+		if (Input.GetKey(Keybinds.birdRight)) {
+			rb.velocity = new Vector2(rb.velocity.x + moveSpeed * Time.deltaTime, rb.velocity.y);
+		}
+		if (Input.GetKey(Keybinds.birdLeft)) {
+			rb.velocity = new Vector2(rb.velocity.x - moveSpeed * Time.deltaTime, rb.velocity.y);
 		}
 		
 		
@@ -64,12 +46,12 @@ public class BirdController : MonoBehaviour {
 		yield break;
 	}
 	
-	void Update() {
+	/*void Update() {
 		PlayerMove();
 		//rb.velocity = playerVelocity + gravityVelocity;
 		//rb.velocity = new Vector2(playerVelocity.x, rb.velocity.y);
 		//rb.AddForce(Vector2.up * (playerVelocity.y + gravityVelocity.y));
 		//rb.AddForce(playerVelocity + gravityVelocity, ForceMode2D.Impulse);
-	}
+	}*/
 	
 }
