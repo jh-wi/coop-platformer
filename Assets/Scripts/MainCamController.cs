@@ -1,0 +1,58 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+// [RequireComponent(typeof(Camera))]
+public class MainCamController : MonoBehaviour {
+   
+
+    public List<Transform> targets;
+    public Vector3 offset;
+    private Vector3 velocity;
+    public float smoothTime = .5f;
+    public float minZoom = 40f;
+    public float maxZoom = 10f;
+    public float zoomLimiter = 50f;
+    private Camera cam;
+
+
+    private void Start()
+    {
+        cam = GetComponent<Camera>();
+    }
+
+
+    private void LateUpdate()
+    {
+        if(targets.Count == 0){
+            return;
+        }
+        // Debug.Log(GetGreatestDistance());
+       
+    }
+
+  
+
+    float GetGreatestDistance(){
+        var bounds = new Bounds(targets[0].position, Vector2.zero);
+        for(int i = 0; i < targets.Count; i++){
+            bounds.Encapsulate(targets[i].position);
+        }
+
+        return bounds.size.x;
+    }
+
+  
+    Vector3 GetCenterPoint(){
+        if(targets.Count == 1){
+            return targets[0].position;
+        }
+
+        var bounds = new Bounds(targets[0].position, Vector2.zero);
+        for(int i = 0; i < targets.Count; i++){
+            bounds.Encapsulate(targets[i].position);
+        }
+
+        return bounds.center;
+    }
+}
