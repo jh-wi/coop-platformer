@@ -17,17 +17,11 @@ public class Logs : Interactable {
 	
 	protected override void OnInteract(ObstacleController obsCtrl) {
 		if (obsCtrl.playerType == ObstacleController.PlayerType.Bear) {
+			Debug.Log("Player Bear is interacting");
 			rb.bodyType = RigidbodyType2D.Dynamic;
-			GameObject particles = Instantiate(interactParticles, transform.position, Quaternion.identity);
-			Destroy(particles, 5);
+			//GameObject particles = Instantiate(interactParticles, transform.position, Quaternion.identity);
+			//Destroy(particles, 5);
 			followRoutine = StartCoroutine(FollowBear(obsCtrl));
-		} else {
-			//TODO: put glasses on bear
-			StopAllCoroutines();
-			transform.SetParent(obsCtrl.transform);
-			//rb.bodyType = RigidbodyType2D.Kinematic;
-			Destroy(rb);
-			transform.localPosition = Vector3.back;
 		}
 	}
 	
