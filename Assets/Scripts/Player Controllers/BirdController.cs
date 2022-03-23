@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class BirdController : PlayerController {
 	
-	
-	[SerializeField] Sprite altSprite;
+	//[SerializeField] Sprite altSprite;
+
+	Animator animator;
 	Sprite ogSprite;
 	
 	protected override void Start() {
 		base.Start();
 		ogSprite = renderer.sprite;
+		animator = GetComponent<Animator>();
+		Debug.Log(animator);
 	}
 	
 	protected override void PlayerMove() {
@@ -38,11 +41,13 @@ public class BirdController : PlayerController {
 	
 	IEnumerator JumpCooldown() {
 		canJump = false;
-		renderer.sprite = altSprite;
+		//renderer.sprite = altSprite;
+		animator.SetBool("isFlying", true);
 		yield return new WaitForSeconds(jumpCooldown / 2);
 		renderer.sprite = ogSprite;
 		yield return new WaitForSeconds(jumpCooldown / 2);
 		canJump = true;
+		animator.SetBool("isFlying", false);
 		yield break;
 	}
 	
