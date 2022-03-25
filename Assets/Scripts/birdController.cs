@@ -7,6 +7,7 @@ public class birdController : MonoBehaviour
     public KeyCode left;
     public KeyCode right;
     public KeyCode up;
+    public KeyCode down;
     
     private float HSpeed = 10f;
 	//private float maxVertHSpeed = 20f;
@@ -21,7 +22,8 @@ public class birdController : MonoBehaviour
 	public LayerMask whatIsGround;
 	private bool grounded = false;
 	private float groundRadius = 0.5f;
-	private float jumpForce = 5f;
+	private float flyForce = 3f;
+    private float landForce = -2f;
 
 	private Animator anim;
 
@@ -46,12 +48,16 @@ public class birdController : MonoBehaviour
 
         // moveXInput = Input.GetAxis("Horizontal");
 
-        if ((grounded) && Input.GetKey(up))
-        {
+        if ((grounded) && Input.GetKey(up)){
             anim.SetBool("ground", false);
 
-            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.y, jumpForce);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.y, flyForce);
+        }else if ((grounded) && Input.GetKey(down)){
+            anim.SetBool("ground", false);
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.y, landForce);
         }
+
+         
         if ((grounded) && Input.GetKey(left))
         {
             leftCurrent = true;
