@@ -28,10 +28,16 @@ public class BirdController : PlayerController {
 		rb.velocity = new Vector2(0, rb.velocity.y);
 		if (Input.GetKey(Keybinds.birdRight)) {
 			rb.velocity = new Vector2(rb.velocity.x + moveSpeed * Time.deltaTime, rb.velocity.y);
+			animator.SetBool("isWalking", true);
 		}
-		if (Input.GetKey(Keybinds.birdLeft)) {
+		else if (Input.GetKey(Keybinds.birdLeft)) {
 			rb.velocity = new Vector2(rb.velocity.x - moveSpeed * Time.deltaTime, rb.velocity.y);
+			animator.SetBool("isWalking", true);
 		}
+		else {
+			animator.SetBool("isWalking", false);
+		}
+
 		
 		
 		//gravity
