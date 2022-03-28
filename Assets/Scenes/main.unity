@@ -672,8 +672,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380134524}
-  m_LocalRotation: {x: 0.00023620775, y: 0.01261466, z: -0.0000029799176, w: 0.9999204}
-  m_LocalPosition: {x: -5.252273, y: 0.022224491, z: -9.996816}
+  m_LocalRotation: {x: 0.0006626994, y: 0.031350713, z: -0.000020786321, w: 0.99950826}
+  m_LocalPosition: {x: -5.6334457, y: 0.030903123, z: -10.087665}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1106096214}
@@ -859,7 +859,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 9.994975
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -882,8 +882,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0.00023620775, y: 0.01261466, z: -0.0000029799176, w: 0.9999204}
-  m_LocalPosition: {x: -5.252273, y: 0.022224491, z: -9.996816}
+  m_LocalRotation: {x: 0.0006626994, y: 0.031350713, z: -0.000020786321, w: 0.99950826}
+  m_LocalPosition: {x: -5.6334457, y: 0.030903123, z: -10.087665}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1423,7 +1423,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8602457, y: 0.05}
+  m_Size: {x: 0.8602457, y: 0.1}
   m_EdgeRadius: 0
 --- !u!114 &1105397832
 MonoBehaviour:
@@ -1500,7 +1500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105397829}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4143, y: -1.9318, z: 0}
+  m_LocalPosition: {x: -2.58, y: -1.96, z: 0}
   m_LocalScale: {x: 0.12083464, y: 0.1629218, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1519,7 +1519,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03341949, y: -0.06987715}
+  m_Offset: {x: -0.5877986, y: -3.7397647}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1530,7 +1530,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8602457, y: 0.72656775}
+  m_Size: {x: 5.2462997, y: 8.066343}
   m_EdgeRadius: 0
 --- !u!114 &1105397836
 MonoBehaviour:
