@@ -7,6 +7,8 @@ public class Glasses : Interactable {
 	[SerializeField] GameObject interactParticles;
 	[SerializeField] float magnetForce = 1;
 	
+	[SerializeField] float maxSpeed = 10;
+	
 	Rigidbody2D rb;
 
 	Coroutine followRoutine;
@@ -26,8 +28,11 @@ public class Glasses : Interactable {
 			StopAllCoroutines();
 			transform.SetParent(obsCtrl.transform);
 			//rb.bodyType = RigidbodyType2D.Kinematic;
+			obsCtrl.GetComponent<BearController>().OnGetGlasses();
 			Destroy(rb);
 			transform.localPosition = new Vector3(0.535f, 0.3f, -1);
+			Destroy(GetComponent<Collider>());
+			Destroy(this);
 		}
 	}
 	
@@ -35,6 +40,9 @@ public class Glasses : Interactable {
 		while (true) {
 			yield return null;
 			rb.AddForce((obsCtrl.transform.position - transform.position) * magnetForce);
+			if (rb.velocity.magnitude > maxSpeed) {
+				rb.velocity = rb.velocity.normalized * maxSpeed;
+			}
 		}
 	}
 	

@@ -8,11 +8,13 @@ public class BirdController : PlayerController {
 
 	Animator animator;
 	Sprite ogSprite;
+	SpriteRenderer rend;
 	
 	protected override void Start() {
 		base.Start();
 		ogSprite = renderer.sprite;
 		animator = GetComponent<Animator>();
+		rend = GetComponent<SpriteRenderer>();
 		Debug.Log(animator);
 	}
 	
@@ -43,6 +45,18 @@ public class BirdController : PlayerController {
 		//gravity
 		gravityVelocity -= Vector2.up * gravity * Time.deltaTime;
 		if (grounded) gravityVelocity = Vector2.zero;
+		if (rb.velocity.x > 0) {
+			rend.flipX = false;
+			if (animator.GetBool("isFlying")) {
+				rend.flipX = true;
+			}
+		}
+		if (rb.velocity.x < 0) {
+			rend.flipX = true;
+			if (animator.GetBool("isFlying")) {
+				rend.flipX = false;
+			}
+		}
 	}
 	
 	IEnumerator JumpCooldown() {

@@ -7,10 +7,14 @@ public class BearController : PlayerController {
 	int lastDir = 0;
 	
 	Animator animator;
+	SpriteRenderer rend;
+	float jumpMultiplyer = 1;
 	
 	protected override void Start() {
 		base.Start();
 		animator = GetComponent<Animator>();
+		rend = GetComponent<SpriteRenderer>();
+		
 	}
 	
 	protected override void PlayerMove() {
@@ -34,7 +38,7 @@ public class BearController : PlayerController {
 			//playerVelocity += Vector2.up * jumpForce;
 			//transform.position += Vector3.up * 0.2f;
 			//rb.AddForce(new Vector2(Mathf.Sign(rb.velocity.x) * jumpForce * 2, jumpForce));
-			rb.velocity = new Vector2(lastDir * jumpForce, jumpForce);
+			rb.velocity = new Vector2(lastDir * jumpForce * jumpMultiplyer, jumpForce * jumpMultiplyer);
 			StartCoroutine(JumpCooldown());
 		}
 		
@@ -47,6 +51,8 @@ public class BearController : PlayerController {
 		} else {
 			animator.SetBool("walking", true);
 		}
+		if (rb.velocity.x > 0) rend.flipX = false;
+		if (rb.velocity.x < 0) rend.flipX = true;
 	}
 	
 	IEnumerator JumpCooldown() {
@@ -56,6 +62,8 @@ public class BearController : PlayerController {
 		yield break;
 	}
 
-	
+	public void OnGetGlasses() {
+		jumpMultiplyer *= 2;
+	}
 	
 }
