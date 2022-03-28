@@ -6,6 +6,13 @@ public class BearController : PlayerController {
 	
 	int lastDir = 0;
 	
+	Animator animator;
+	
+	protected override void Start() {
+		base.Start();
+		animator = GetComponent<Animator>();
+	}
+	
 	protected override void PlayerMove() {
 		
 		//print(grounded);
@@ -22,6 +29,7 @@ public class BearController : PlayerController {
 			lastDir = -1;
 		}
 		
+		
 		if (Input.GetKeyDown(Keybinds.bearJump) && grounded/* && Vector3.Dot(transform.up, Vector3.up) > 0.75*/) {
 			//playerVelocity += Vector2.up * jumpForce;
 			//transform.position += Vector3.up * 0.2f;
@@ -34,6 +42,11 @@ public class BearController : PlayerController {
 		//gravity
 		gravityVelocity -= Vector2.up * gravity * Time.deltaTime;
 		if (grounded) gravityVelocity = Vector2.zero;
+		if (rb.velocity == Vector2.zero || !grounded) {
+			animator.SetBool("walking", false);
+		} else {
+			animator.SetBool("walking", true);
+		}
 	}
 	
 	IEnumerator JumpCooldown() {

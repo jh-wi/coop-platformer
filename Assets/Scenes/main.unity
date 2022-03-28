@@ -389,6 +389,7 @@ GameObject:
   - component: {fileID: 232239985}
   - component: {fileID: 232239987}
   - component: {fileID: 232239986}
+  - component: {fileID: 232239990}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -436,7 +437,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 54e7a70b644d91f48b4b88ff873dd863, type: 3}
+  m_Sprite: {fileID: 6320653551955692988, guid: 6b39b0b2a6babe047b7529bacb353de5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -481,7 +482,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &232239986
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -495,18 +496,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.016646713, y: -0.38881987}
+  m_Offset: {x: 0.020192504, y: -0.5167584}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 1.7477434, y: 1.1153847}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7615734, y: 0.026739687}
+  m_Size: {x: 1.7473378, y: 0.034050584}
   m_EdgeRadius: 0
 --- !u!61 &232239987
 BoxCollider2D:
@@ -521,18 +522,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.016646713, y: 0.008323386}
+  m_Offset: {x: 0.020192683, y: 0.0010126233}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 1.7477434, y: 1.1153847}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7615734, y: 0.79248893}
+  m_Size: {x: 1.7331542, y: 1.0264336}
   m_EdgeRadius: 0
 --- !u!114 &232239988
 MonoBehaviour:
@@ -563,6 +564,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerType: 1
+--- !u!95 &232239990
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232239982}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ca68775456f54d47a9e17a2f66efffb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &251382409
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,8 +672,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380134524}
-  m_LocalRotation: {x: -0.0000000059604646, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0.017499961, z: -10}
+  m_LocalRotation: {x: 0.00023620775, y: 0.01261466, z: -0.0000029799176, w: 0.9999204}
+  m_LocalPosition: {x: -5.252273, y: 0.022224491, z: -9.996816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1106096214}
@@ -839,7 +859,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 9.994975
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -862,8 +882,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: -0.0000000059604646, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0.017499961, z: -10}
+  m_LocalRotation: {x: 0.00023620775, y: 0.01261466, z: -0.0000029799176, w: 0.9999204}
+  m_LocalPosition: {x: -5.252273, y: 0.022224491, z: -9.996816}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1378,7 +1398,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1105397831
 BoxCollider2D:
   m_ObjectHideFlags: 0

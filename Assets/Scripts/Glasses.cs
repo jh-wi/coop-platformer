@@ -27,7 +27,7 @@ public class Glasses : Interactable {
 			transform.SetParent(obsCtrl.transform);
 			//rb.bodyType = RigidbodyType2D.Kinematic;
 			Destroy(rb);
-			transform.localPosition = Vector3.back;
+			transform.localPosition = new Vector3(0.535f, 0.3f, -1);
 		}
 	}
 	
