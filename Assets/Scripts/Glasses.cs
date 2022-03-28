@@ -31,7 +31,7 @@ public class Glasses : Interactable {
 			obsCtrl.GetComponent<BearController>().OnGetGlasses();
 			Destroy(rb);
 			transform.localPosition = new Vector3(0.535f, 0.3f, -1);
-			Destroy(GetComponent<Collider>());
+			Destroy(GetComponent<Collider2D>());
 			Destroy(this);
 		}
 	}
