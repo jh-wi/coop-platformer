@@ -8,6 +8,7 @@ public static class Keybinds {
 	public static KeyCode bearLeft = KeyCode.A;
 	public static KeyCode bearDown = KeyCode.S;
 	public static KeyCode bearRight = KeyCode.D;
+	public static KeyCode bearDash = KeyCode.LeftShift;
 	
 	public static KeyCode birdJump = KeyCode.UpArrow;
 	public static KeyCode birdLeft = KeyCode.LeftArrow;
@@ -19,6 +20,7 @@ public static class Keybinds {
 		bearJump = KeyCode.A;
 		bearJump = KeyCode.S;
 		bearJump = KeyCode.D;
+		bearJump = KeyCode.LeftShift;
 		
 		birdJump = KeyCode.UpArrow;
 		birdJump = KeyCode.LeftArrow;
