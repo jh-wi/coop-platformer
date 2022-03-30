@@ -22,7 +22,7 @@ public class BearController : PlayerController {
 	
 
 	protected override void PlayerMove() {
-		dashSpeed =  moveSpeed * 25;
+		dashSpeed =  moveSpeed * 3;
 		//print(grounded);
 		// Debug.Log("Original Speed");
 		// Debug.Log(moveSpeed);
