@@ -1030,8 +1030,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1438509562}
-  m_Follow: {fileID: 1438509562}
+  m_LookAt: {fileID: 1105397834}
+  m_Follow: {fileID: 232239984}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 9.994975
