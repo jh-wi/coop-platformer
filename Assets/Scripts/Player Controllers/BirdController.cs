@@ -1,82 +1,89 @@
+// using System.Runtime.Intrinsics;
+// using System.Numerics;
+using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdController : PlayerController {
-	
-	//[SerializeField] Sprite altSprite;
+public class BirdController : MonoBehaviour{
+    
+    public float HSpeed = 10f;
+    private float curr_speed = 10f;
+	private bool facingRight = false;
+    private bool leftCurrent = true;
 
-	Animator animator;
-	Sprite ogSprite;
-	SpriteRenderer rend;
-	
-	protected override void Start() {
-		base.Start();
-		ogSprite = renderer.sprite;
-		animator = GetComponent<Animator>();
-		rend = GetComponent<SpriteRenderer>();
-		Debug.Log(animator);
-	}
-	
-	protected override void PlayerMove() {
-		
-		if (canJump && Input.GetKey(Keybinds.birdJump)/* && Vector3.Dot(transform.up, Vector3.up) > 0.75*/) {
-			//playerVelocity += Vector2.up * jumpForce;
-			//transform.position += Vector3.up * 0.2f;
-			rb.AddForce(Vector2.up * jumpForce);
-			StartCoroutine(JumpCooldown());
-		}
-		
-		rb.velocity = new Vector2(0, rb.velocity.y);
-		if (Input.GetKey(Keybinds.birdRight)) {
-			rb.velocity = new Vector2(rb.velocity.x + moveSpeed * Time.deltaTime, rb.velocity.y);
-			animator.SetBool("isWalking", true);
-		}
-		else if (Input.GetKey(Keybinds.birdLeft)) {
-			rb.velocity = new Vector2(rb.velocity.x - moveSpeed * Time.deltaTime, rb.velocity.y);
-			animator.SetBool("isWalking", true);
-		}
-		else {
-			animator.SetBool("isWalking", false);
-		}
+    //Used for flipping Character Direction
+	public static Vector3 theScale;
 
-		
-		
-		//gravity
-		gravityVelocity -= Vector2.up * gravity * Time.deltaTime;
-		if (grounded) gravityVelocity = Vector2.zero;
-		if (rb.velocity.x > 0) {
-			rend.flipX = false;
-			if (animator.GetBool("isFlying")) {
-				rend.flipX = true;
-			}
-		}
-		if (rb.velocity.x < 0) {
-			rend.flipX = true;
-			if (animator.GetBool("isFlying")) {
-				rend.flipX = false;
-			}
-		}
+	//Jumping Stuff
+	public Transform groundCheck;
+	public LayerMask whatIsGround;
+	private bool grounded = false;
+	private float groundRadius = 0.5f;
+	public float flyForce = 3f;
+    // private float landForce = -2f;
+
+	private Animator anim;
+
+	void Awake (){
+		anim = GetComponent<Animator> ();
 	}
-	
-	IEnumerator JumpCooldown() {
-		canJump = false;
-		//renderer.sprite = altSprite;
-		animator.SetBool("isFlying", true);
-		yield return new WaitForSeconds(jumpCooldown / 2);
-		renderer.sprite = ogSprite;
-		yield return new WaitForSeconds(jumpCooldown / 2);
-		canJump = true;
-		animator.SetBool("isFlying", false);
-		yield break;
+
+	void FixedUpdate (){
+
+		grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
+		anim.SetBool ("isGrounded", true);
+        anim.SetBool("isHopping", false);
+        anim.SetBool("isFlying", false);
+
+        // UnityEngine.Debug.Log("grounded: ");
+        // UnityEngine.Debug.Log(grounded);
+
+        if(!grounded){
+            anim.SetBool("isFlying", true);
+        }
+        
+
+         
 	}
-	
-	/*void Update() {
-		PlayerMove();
-		//rb.velocity = playerVelocity + gravityVelocity;
-		//rb.velocity = new Vector2(playerVelocity.x, rb.velocity.y);
-		//rb.AddForce(Vector2.up * (playerVelocity.y + gravityVelocity.y));
-		//rb.AddForce(playerVelocity + gravityVelocity, ForceMode2D.Impulse);
-	}*/
-	
+
+	void Update(){
+        
+
+        if (Input.GetKeyDown(Keybinds.birdJump)){
+            anim.SetBool("isGrounded", false);
+            // leftCurrent = false;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.y, flyForce);
+            // curr_speed = -HSpeed;
+        }//else if ((grounded) && Input.GetKey(down)){
+        //     // anim.SetBool("ground", false);
+        //     grounded = false;
+        //     GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.y, landForce);
+        // }
+
+        
+        if (Input.GetKey(Keybinds.birdLeft)){
+            leftCurrent = true;
+            curr_speed = -HSpeed;
+        }else if (Input.GetKey(Keybinds.birdRight)){
+            leftCurrent = false;
+            curr_speed = HSpeed; 
+        }else{
+            curr_speed = 0;   
+        }
+        GetComponent<Rigidbody2D>().velocity = new Vector2(curr_speed, GetComponent<Rigidbody2D>().velocity.y); 
+        //Flipping direction character is facing based on players Input
+        if (!leftCurrent && facingRight)
+            Flip();
+        else if (leftCurrent && !facingRight)
+            Flip();
+    }
+    ////Flipping direction of character
+    void Flip(){
+		facingRight = !facingRight;
+		theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
+	}
+
 }
