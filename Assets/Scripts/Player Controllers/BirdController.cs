@@ -27,7 +27,14 @@ public class BirdController : MonoBehaviour{
 
 	void Awake (){
 		anim = GetComponent<Animator> ();
+        // GetComponent<Rigidbody2D>().velocity = new Vector2(curr_speed, GetComponent<Rigidbody2D>().velocity.y); 
 	}
+
+    void start(){
+        GetComponent<Rigidbody2D>().velocity = new Vector2(curr_speed, GetComponent<Rigidbody2D>().velocity.y); 
+    }
+    
+    
 
 	void FixedUpdate (){
 
@@ -52,9 +59,8 @@ public class BirdController : MonoBehaviour{
 
         if (Input.GetKeyDown(Keybinds.birdJump)){
             anim.SetBool("isGrounded", false);
-            // leftCurrent = false;
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.y, flyForce);
-            // curr_speed = -HSpeed;
+           
         }//else if ((grounded) && Input.GetKey(down)){
         //     // anim.SetBool("ground", false);
         //     grounded = false;
