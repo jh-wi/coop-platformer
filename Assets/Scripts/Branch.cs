@@ -28,7 +28,7 @@ public class Branch : Interactable {
 			StopAllCoroutines();
 			transform.SetParent(obsCtrl.transform);
 			//rb.bodyType = RigidbodyType2D.Kinematic;
-			obsCtrl.GetComponent<BearController>().OnGetGlasses();
+			obsCtrl.GetComponent<LadderController>().OnGetStick();
 			Destroy(rb);
 			transform.localPosition = new Vector3(0.535f, 0.3f, -1);
 			Destroy(GetComponent<Collider2D>());
