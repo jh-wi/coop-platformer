@@ -11,4 +11,8 @@ public class SceneControl : MonoBehaviour
     public void goBack(){
         SceneManager.LoadScene("Start Menu");
     }
+
+    public void CreditScene(){
+        SceneManager.LoadScene("Credits");
+    }
 }
