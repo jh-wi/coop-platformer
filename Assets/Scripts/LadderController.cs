@@ -6,17 +6,16 @@ public class LadderController : MonoBehaviour
 {
 
     public int numSticks = 0;
-    // Start is called before the first frame update
+    private Ladder ladder;
     void Start()
     {
-        
+        ladder = GameObject.FindObjectOfType<Ladder> ();  
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(numSticks == 1) {
-
+        if(numSticks == 5) {
+            ladder.showLadder(true);
         }
         
     }

@@ -9,9 +9,6 @@ public class BearController : PlayerController {
 	Animator animator;
 	SpriteRenderer rend;
 	float jumpMultiplyer = 1;
-	bool dash = false;
-	float dashSpeed;
-	float normalSpeed;
 	
 	protected override void Start() {
 		base.Start();
@@ -20,12 +17,9 @@ public class BearController : PlayerController {
 		
 	}
 	
-
 	protected override void PlayerMove() {
-		dashSpeed =  moveSpeed * 5;
+		
 		//print(grounded);
-		// Debug.Log("Original Speed");
-		// Debug.Log(moveSpeed);
 		
 		if (canJump && grounded) {
 			rb.velocity = new Vector2(0, rb.velocity.y);
@@ -38,20 +32,6 @@ public class BearController : PlayerController {
 			rb.velocity = new Vector2(-moveSpeed * Time.deltaTime, rb.velocity.y);
 			lastDir = -1;
 		}
-		normalSpeed = 2500;
-		if(Input.GetKey(Keybinds.bearDash) && !dash){
-			moveSpeed = dashSpeed;
-			dash = true;
-			// Debug.Log("Should be dashing");
-			// Debug.Log(moveSpeed);
-		}
-		if(Input.GetKeyUp(Keybinds.bearDash)){
-			moveSpeed = normalSpeed;
-			dash = false;
-			// Debug.Log("Stop dashing");
-			// Debug.Log(moveSpeed);
-		}
-
 		
 		
 		if (Input.GetKeyDown(Keybinds.bearJump) && grounded/* && Vector3.Dot(transform.up, Vector3.up) > 0.75*/) {
@@ -61,8 +41,6 @@ public class BearController : PlayerController {
 			rb.velocity = new Vector2(lastDir * jumpForce * jumpMultiplyer, jumpForce * jumpMultiplyer);
 			StartCoroutine(JumpCooldown());
 		}
-
-		
 		
 		
 		//gravity
@@ -85,7 +63,8 @@ public class BearController : PlayerController {
 	}
 
 	public void OnGetGlasses() {
-		jumpMultiplyer *= 1.3f;
+		Debug.Log("Got the glasses");
+		jumpMultiplyer *= 2;
 	}
 	
 }

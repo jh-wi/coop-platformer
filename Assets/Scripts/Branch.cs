@@ -24,7 +24,7 @@ public class Branch : Interactable {
 			Destroy(particles, 5);
 			followRoutine = StartCoroutine(FollowBird(obsCtrl));
 		} else {
-			//TODO: put glasses on bear
+			//TODO: put branch on rock
 			StopAllCoroutines();
 			transform.SetParent(obsCtrl.transform);
 			//rb.bodyType = RigidbodyType2D.Kinematic;
