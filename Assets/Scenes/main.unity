@@ -1861,14 +1861,14 @@ RectTransform:
   m_GameObject: {fileID: 847419878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.20172, y: 0.20172, z: 0.20172}
   m_Children: []
   m_Father: {fileID: 1324538421}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -387, y: 187}
+  m_AnchoredPosition: {x: -333, y: 113}
   m_SizeDelta: {x: -799.00366, y: -395.40338}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &847419880
@@ -4898,9 +4898,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - 'Bear: Hello! I am a bear!'
-    - 'Bear: I need to hibernate for winter!'
-    - 'Bird: I can help!'
+    - 'Bear: I wonder where my glasses are...'
+    - 'Bird: Hello!'
+    - 'Bear: Oh hi! Who are you?'
+    - Continue FMS's Script here...
 --- !u!114 &1960913628
 MonoBehaviour:
   m_ObjectHideFlags: 0
