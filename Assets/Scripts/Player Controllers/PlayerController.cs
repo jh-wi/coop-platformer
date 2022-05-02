@@ -10,6 +10,7 @@ public abstract class PlayerController : MonoBehaviour {
 	[SerializeField] protected float moveSpeed;
 	[SerializeField] protected float jumpForce;
 	[SerializeField] protected float jumpCooldown;
+	[SerializeField] protected LayerMask groundedMask;
 	protected bool canJump = true;
 	[SerializeField] protected float gravity;
 	protected Rigidbody2D rb;
@@ -17,12 +18,16 @@ public abstract class PlayerController : MonoBehaviour {
 	
 	protected int triggerObjects = 0;
 	
-	void OnTriggerEnter2D() {
-		triggerObjects++;
+	void OnTriggerEnter2D(Collider2D col) {
+		if (groundedMask == (groundedMask | (1 << col.gameObject.layer))) {
+			triggerObjects++;
+		}
 	}
 	
-	void OnTriggerExit2D() {
-		triggerObjects--;
+	void OnTriggerExit2D(Collider2D col) {
+		if (groundedMask == (groundedMask | (1 << col.gameObject.layer))) {
+			triggerObjects--;
+		}
 	}
 	
 	

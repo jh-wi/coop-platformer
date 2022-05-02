@@ -15,12 +15,6 @@ public class BirdController : PlayerController {
     //Used for flipping Character Direction
 	public static Vector3 theScale;
 
-	//Jumping Stuff
-	public Transform groundCheck;
-	public LayerMask whatIsGround;
-	private float groundRadius = 0.5f;
-	public float flyForce = 3f;
-    // private float landForce = -2f;
 	bool left;
 	bool right;
 	bool up;
