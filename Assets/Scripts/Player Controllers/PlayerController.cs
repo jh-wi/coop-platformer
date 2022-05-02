@@ -13,7 +13,7 @@ public abstract class PlayerController : MonoBehaviour {
 	protected bool canJump = true;
 	[SerializeField] protected float gravity;
 	protected Rigidbody2D rb;
-	protected SpriteRenderer renderer;
+	protected SpriteRenderer rend;
 	
 	protected int triggerObjects = 0;
 	
@@ -28,7 +28,7 @@ public abstract class PlayerController : MonoBehaviour {
 	
 	protected virtual void Start() {
 		rb = GetComponent<Rigidbody2D>();
-		renderer = GetComponent<SpriteRenderer>();
+		rend = GetComponent<SpriteRenderer>();
 	}
 	
 	protected abstract void PlayerMove();
@@ -40,6 +40,13 @@ public abstract class PlayerController : MonoBehaviour {
 		//rb.velocity = new Vector2(playerVelocity.x, rb.velocity.y);
 		//rb.AddForce(Vector2.up * (playerVelocity.y + gravityVelocity.y));
 		//rb.AddForce(playerVelocity + gravityVelocity, ForceMode2D.Impulse);
+	}
+	
+	protected IEnumerator JumpCooldown() {
+		canJump = false;
+		yield return new WaitForSeconds(jumpCooldown);
+		canJump = true;
+		yield break;
 	}
 	
 }

@@ -7,14 +7,11 @@ public class BearController : PlayerController {
 	int lastDir = 0;
 	
 	Animator animator;
-	SpriteRenderer rend;
 	float jumpMultiplyer = 1;
 	
 	protected override void Start() {
 		base.Start();
 		animator = GetComponent<Animator>();
-		rend = GetComponent<SpriteRenderer>();
-		
 	}
 	
 	protected override void PlayerMove() {
@@ -55,12 +52,7 @@ public class BearController : PlayerController {
 		if (rb.velocity.x < 0) rend.flipX = true;
 	}
 	
-	IEnumerator JumpCooldown() {
-		canJump = false;
-		yield return new WaitForSeconds(jumpCooldown);
-		canJump = true;
-		yield break;
-	}
+	
 
 	public void OnGetGlasses() {
 		Debug.Log("Got the glasses");
