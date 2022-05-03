@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
 
     public Animator animator;
+    public Animator buttonAnimator;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +45,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("isOpen", false);
+        buttonAnimator.SetBool("isOpen", false);
         //Dubug.Log("End of Dialogue. ");
     }
 }
