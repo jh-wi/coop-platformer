@@ -33,7 +33,7 @@ public class BirdController : PlayerController {
 
 	void FixedUpdate (){
 		
-		print($"up: {up}, canJump: {canJump}");
+		//print($"up: {up}, canJump: {canJump}");
 		
 		//grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround);
 		anim.SetBool ("isGrounded", grounded);
