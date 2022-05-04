@@ -5,7 +5,7 @@ using UnityEngine;
 public class Lever : Interactable
 {
  	Rigidbody2D rb;
-	GameObject gate;
+	GameObject treeGate;
 	public SpriteRenderer spriteRenderer;
     public Sprite newSprite;
 
@@ -13,7 +13,7 @@ public class Lever : Interactable
 	
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
-		gate = GameObject.Find("Gate");
+		treeGate = GameObject.Find("OrangeTree");
 	}
 
 	protected override void OnInteract(ObstacleController obsCtrl) {
@@ -30,7 +30,7 @@ public class Lever : Interactable
 
 	IEnumerator OpenGate(ObstacleController obsCtrl) {
 		while (true) {
-			gate.GetComponent<Gate>().Open(); 
+			treeGate.GetComponent<OrangeTree>().Open(); 
 			yield return null;
 		}
 	}
