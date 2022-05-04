@@ -7,6 +7,7 @@ public class SceneControl : MonoBehaviour
 {
     public void NextScene(){
         SceneManager.LoadScene("main");
+		Time.timeScale = 1;
     }
     public void goBack(){
         SceneManager.LoadScene("Start Menu");
