@@ -429,6 +429,7 @@ GameObject:
   - component: {fileID: 98277135}
   - component: {fileID: 98277137}
   - component: {fileID: 98277136}
+  - component: {fileID: 98277138}
   m_Layer: 0
   m_Name: Right_Branch
   m_TagString: Untagged
@@ -563,6 +564,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.4300003, y: 2.6107497}
   m_EdgeRadius: 0
+--- !u!114 &98277138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98277132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5b2b8e1a70fda4f9721e723d6409fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 1615937721}
+  click: {fileID: 8300000, guid: 5f128a96674d27f42bf72021b8f1f072, type: 3}
 --- !u!1 &172941007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,6 +2225,7 @@ GameObject:
   - component: {fileID: 982297156}
   - component: {fileID: 982297160}
   - component: {fileID: 982297159}
+  - component: {fileID: 982297158}
   m_Layer: 0
   m_Name: Top_Branch
   m_TagString: Untagged
@@ -2282,6 +2298,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &982297158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982297155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5b2b8e1a70fda4f9721e723d6409fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 1615937721}
+  click: {fileID: 8300000, guid: 5f128a96674d27f42bf72021b8f1f072, type: 3}
 --- !u!50 &982297159
 Rigidbody2D:
   serializedVersion: 4
@@ -2970,6 +3000,7 @@ GameObject:
   - component: {fileID: 1305136675}
   - component: {fileID: 1305136674}
   - component: {fileID: 1305136673}
+  - component: {fileID: 1305136676}
   m_Layer: 0
   m_Name: Left_Log
   m_TagString: Untagged
@@ -3103,6 +3134,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.4300003, y: 2.6107497}
   m_EdgeRadius: 0
+--- !u!114 &1305136676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305136670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5b2b8e1a70fda4f9721e723d6409fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 1615937721}
+  click: {fileID: 8300000, guid: 5f128a96674d27f42bf72021b8f1f072, type: 3}
 --- !u!1 &1307842570
 GameObject:
   m_ObjectHideFlags: 0
@@ -4378,6 +4423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1757480556}
   - component: {fileID: 1757480555}
+  - component: {fileID: 1757480557}
   m_Layer: 0
   m_Name: Right_Log
   m_TagString: Untagged
@@ -4450,6 +4496,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1757480557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757480554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5b2b8e1a70fda4f9721e723d6409fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 1615937721}
+  click: {fileID: 8300000, guid: 5f128a96674d27f42bf72021b8f1f072, type: 3}
 --- !u!1 &1768519557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4463,6 +4523,7 @@ GameObject:
   - component: {fileID: 1768519560}
   - component: {fileID: 1768519562}
   - component: {fileID: 1768519561}
+  - component: {fileID: 1768519563}
   m_Layer: 9
   m_Name: Left_Branch
   m_TagString: Untagged
@@ -4597,6 +4658,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.4300003, y: 2.6107497}
   m_EdgeRadius: 0
+--- !u!114 &1768519563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768519557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5b2b8e1a70fda4f9721e723d6409fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 1615937721}
+  click: {fileID: 8300000, guid: 5f128a96674d27f42bf72021b8f1f072, type: 3}
 --- !u!1 &1855959304
 GameObject:
   m_ObjectHideFlags: 0
