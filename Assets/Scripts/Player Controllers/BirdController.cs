@@ -39,21 +39,21 @@ public class BirdController : PlayerController {
 		anim.SetBool ("isGrounded", grounded);
         anim.SetBool("isHopping", false);
         anim.SetBool("isFlying", false);
+		anim.SetBool("gliding", false);
 
         // UnityEngine.Debug.Log("grounded: ");
         // UnityEngine.Debug.Log(grounded);
-
-        if(!grounded){
-            anim.SetBool("isFlying", true);
-        }
         
 		if (up && canJump) {
-            anim.SetBool("isGrounded", false);
+			anim.SetBool("isFlying", true);
             //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpForce);
 			//rb.AddForce(Vector2.up * jumpForce);
 			rb.velocity = new Vector2(rb.velocity.x, jumpForce);
 			StartCoroutine(JumpCooldown());
-        }//else if ((grounded) && Input.GetKey(down)){
+        } else if (!up) {
+			anim.SetBool("gliding", true);
+		}
+		//else if ((grounded) && Input.GetKey(down)){
         //     // anim.SetBool("ground", false);
         //     grounded = false;
         //     GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.y, landForce);
@@ -63,9 +63,15 @@ public class BirdController : PlayerController {
         if (left){
             leftCurrent = true;
             rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
+			//if (grounded) {
+       			anim.SetBool("isHopping", true);
+			//}
         } else if (right){
             leftCurrent = false;
             rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+			//if (grounded) {
+       			anim.SetBool("isHopping", true);
+			//}
         }
 		
         //Flipping direction character is facing based on players Input
