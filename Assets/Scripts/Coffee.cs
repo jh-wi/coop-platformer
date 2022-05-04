@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Glasses : Interactable {
-	
-	[SerializeField] GameObject interactParticles;
+public class Coffee : Interactable {
+    [SerializeField] GameObject interactParticles;
 	[SerializeField] float magnetForce = 1;
 	
 	[SerializeField] float maxSpeed = 10;
@@ -28,7 +27,7 @@ public class Glasses : Interactable {
 			StopAllCoroutines();
 			//transform.SetParent(obsCtrl.transform);
 			//rb.bodyType = RigidbodyType2D.Kinematic;
-			obsCtrl.GetComponent<BearController>().OnGetGlasses();
+			obsCtrl.GetComponent<BearController>().OnGetCoffee();
 			/*Destroy(rb);
 			transform.localPosition = new Vector3(0.535f, 0.3f, -1);
 			Destroy(GetComponent<Collider2D>());
@@ -46,5 +45,4 @@ public class Glasses : Interactable {
 			}
 		}
 	}
-	
 }

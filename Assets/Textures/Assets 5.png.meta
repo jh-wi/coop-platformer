@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: -6101994675357150772
     second: Assets 5_2
+  - first:
+      213: 970244644940952950
+    second: Assets 5_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -158,6 +161,27 @@ TextureImporter:
       bones: []
       spriteID: cc1130a2c2c515ba0800000000000000
       internalID: -6101994675357150772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Assets 5_3
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 2654
+        height: 2550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6753eee2d50077d00800000000000000
+      internalID: 970244644940952950
       vertices: []
       indices: 
       edges: []

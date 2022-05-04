@@ -56,7 +56,7 @@ public class BearController : PlayerController {
 		if (up && canJump && grounded) {
             //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpForce);
 			//rb.AddForce(Vector2.up * jumpForce);
-			rb.velocity = new Vector2(facingRight ? jumpForce * jumpMultiplyer : jumpForce * jumpMultiplyer * -1, jumpForce);
+			rb.velocity = new Vector2(facingRight ? jumpForce * jumpMultiplyer * -1 : jumpForce * jumpMultiplyer, jumpForce);
 			StartCoroutine(JumpCooldown());
         }
 		
@@ -109,6 +109,10 @@ public class BearController : PlayerController {
 		glasses = true;
 		//jumpMultiplyer *= 2;
 		animator.SetBool("wearingGlasses", true);
+	}
+	
+	public void OnGetCoffee() {
+		jumpForce += 4;
 	}
 	
 	void Flip(){
