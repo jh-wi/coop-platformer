@@ -8,6 +8,8 @@ public class DialogueManager : MonoBehaviour
 {
     public TMP_Text dialogueText;
     private Queue<string> sentences;
+    public Dialogue dialogue;
+	
 
     public Animator animator;
     public Animator buttonAnimator;
@@ -15,11 +17,13 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+		//FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+		StartDialogue();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue()
     {
-        animator.SetBool("isOpen", true);
+        //animator.SetBool("isOpen", true);
         Debug.Log("Starting conversation with ");
 
         sentences.Clear();
@@ -44,8 +48,10 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
-        animator.SetBool("isOpen", false);
-        buttonAnimator.SetBool("isOpen", false);
+		animator.gameObject.SetActive(false);
+		buttonAnimator.gameObject.SetActive(false);
+        //animator.SetBool("isOpen", false);
+       // buttonAnimator.SetBool("isOpen", false);
         //Dubug.Log("End of Dialogue. ");
     }
 }

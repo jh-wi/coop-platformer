@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -175.8, y: 110.3}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -27.09, y: 110.3}
+  m_SizeDelta: {x: 500, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &19621126
 MonoBehaviour:
@@ -207,8 +207,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5018,7 +5018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1960913626
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5345,6 +5345,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 19621126}
+  dialogue:
+    sentences:
+    - 'Bear: Where are those darn glasses? I can''t look for anything if I can''t
+      see!'
+    - 'Bird: Hey there! ... Excuse Me! ... Hello?'
+    - 'Bear: Huh? Who are you?'
+    - 'Bird: I''m sorry to bother you sir, I just wondered if you could help me?
+      I was just sitting in a tree somewhere and this HUGE wind justs blew all my
+      stuff away! Can you help me find my things?'
+    - 'Bear: Listen, you seem really nice, but I''m a busy bear. Why don''t you fly
+      around and look for yourself!'
+    - 'Bird: I tried looking, but I''m afraid. This forest is really big and scary,
+      but you look even scarier! Nothing would ever mess with you! Would you help
+      me? Please!'
+    - 'Bear: I''ll tell you what: I can''t find my glasses, but you''ve got a keen
+      eye. Help me find them and I''ll help you find your stuff. You scratch my back,
+      I''ll scratch yours!'
   animator: {fileID: 1447192942}
   buttonAnimator: {fileID: 1960913631}
 --- !u!4 &2036996496
