@@ -10,7 +10,6 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
     public Dialogue dialogue;
 	
-
     public Animator animator;
     public Animator buttonAnimator;
     // Start is called before the first frame update
