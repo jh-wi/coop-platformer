@@ -14,7 +14,7 @@ public abstract class Interactable : MonoBehaviour {
 			if (playerType == ObstacleController.PlayerType.Bird && !birdInteracted) {
 				OnInteract(obsCtrl);
 				birdInteracted = true;
-				sfx.sfxInstance.audio.PlayOneShot(sfx.sfxInstance.click);
+				//sfx.sfxInstance.audio.PlayOneShot(sfx.sfxInstance.click);
 			} else if (playerType == ObstacleController.PlayerType.Bear && !bearInteracted) {
 				OnInteract(obsCtrl);
 				bearInteracted = true;

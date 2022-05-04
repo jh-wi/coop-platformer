@@ -29,10 +29,11 @@ public class Glasses : Interactable {
 			transform.SetParent(obsCtrl.transform);
 			//rb.bodyType = RigidbodyType2D.Kinematic;
 			obsCtrl.GetComponent<BearController>().OnGetGlasses();
-			Destroy(rb);
+			/*Destroy(rb);
 			transform.localPosition = new Vector3(0.535f, 0.3f, -1);
 			Destroy(GetComponent<Collider2D>());
-			Destroy(this);
+			Destroy(this);*/
+			Destroy(gameObject);
 		}
 	}
 	
