@@ -7,7 +7,7 @@ public class BearController : PlayerController {
 	int lastDir = 0;
 	
 	Animator animator;
-	float jumpMultiplyer = 1;
+	float jumpMultiplyer = 2;
 	private bool facingRight = false;
     private bool leftCurrent = true;
 	public static Vector3 theScale;
@@ -37,12 +37,7 @@ public class BearController : PlayerController {
 			return;
 		}
 		
-		if (up && canJump && grounded) {
-            //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpForce);
-			//rb.AddForce(Vector2.up * jumpForce);
-			rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-			StartCoroutine(JumpCooldown());
-        }
+		
 		
 		rb.velocity = new Vector2(0, rb.velocity.y);
         if (left){
@@ -57,6 +52,19 @@ public class BearController : PlayerController {
             Flip();
         else if (leftCurrent && !facingRight)
             Flip();
+			
+		if (up && canJump && grounded) {
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpForce);
+			//rb.AddForce(Vector2.up * jumpForce);
+			rb.velocity = new Vector2(facingRight ? jumpForce * jumpMultiplyer : jumpForce * jumpMultiplyer * -1, jumpForce);
+			StartCoroutine(JumpCooldown());
+        }
+		
+		if (rb.velocity == Vector2.zero || !grounded) {
+			animator.SetBool("walking", false);
+		} else {
+			animator.SetBool("walking", true);
+		}
 		
 		
 		
@@ -99,7 +107,7 @@ public class BearController : PlayerController {
 	public void OnGetGlasses() {
 		Debug.Log("Got the glasses");
 		glasses = true;
-		jumpMultiplyer *= 2;
+		//jumpMultiplyer *= 2;
 		animator.SetBool("wearingGlasses", true);
 	}
 	
